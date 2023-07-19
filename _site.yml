@@ -1,0 +1,8 @@
+name: "my-website"
+navbar:
+  title: "Catherine's Website"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Case Study 1"
+      href: Project1EDA.html  

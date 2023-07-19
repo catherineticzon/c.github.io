@@ -1,0 +1,14 @@
+---
+title: "Simple Website"
+output: html_document
+date: "2023-07-19"
+---
+
+# Catherine Ticzon
+
+### From Seattle but living in Dallas  
+### Working as an Evaluation Coordinator at the Center on Research and Evaluation at SMU  
+
+Hobbies:   
+  - Hobby 1  
+  - Another hobby  
