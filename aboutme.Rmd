@@ -1,0 +1,18 @@
+---
+title: "About Me"
+output: html_document
+---
+
+## Catherine Ticzon  
+![](images/Capture.png){width=25%} 
+
+* From Seattle but currently living in Dallas  
+* Working as an Evaluation Coordinator for the Center on Research and Evaluation (CORE) at SMU  
+* Education:  
+  - Master of Education, Bilingual Education at Southern Methodist University  
+  - Bachelor of Arts in Political Science and Spanish at University of Washington 
+* Hobbies:  
+  - Working out  
+  - Running  
+  - Yoga  
+  - Reading  
