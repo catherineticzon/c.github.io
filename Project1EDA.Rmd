@@ -44,6 +44,9 @@ Below are the questions addressed in this file:
 7. Is there an apparent relationship between the bitterness of the beer and its alcoholic content? Draw a scatter plot.  
 8.	Budweiser would also like to investigate the difference with respect to IBU and ABV between IPAs (India Pale Ales) and other types of Ale (any beer with “Ale” in its name other than IPA).    
 
+**Click here to see the data on Shiny:**  
+<a href="https://catherineticzon.shinyapps.io/FLS12/">https://catherineticzon.shinyapps.io/FLS12/</a>  
+
 ```{r, message = FALSE, warning = FALSE}
 # Load data sets 
 beers <- read.csv("C:\\Users\\48103982\\Documents\\MSDS\\6306 Doing Data Science\\Project 1\\Beers.csv", header=TRUE)

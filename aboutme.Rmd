@@ -4,7 +4,7 @@ output: html_document
 ---
 
 ## Catherine Ticzon  
-![](images/Capture.png){width=25%} 
+![](images/Capture.PNG){width=25%} 
 
 * From Seattle but currently living in Dallas  
 * Working as an Evaluation Coordinator for the Center on Research and Evaluation (CORE) at SMU  

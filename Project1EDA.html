@@ -248,6 +248,9 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li>
+  <a href="aboutme.html">About Me</a>
+</li>
+<li>
   <a href="Project1EDA.html">Case Study 1</a>
 </li>
       </ul>
@@ -300,6 +303,8 @@ and its alcoholic content? Draw a scatter plot.<br />
 to IBU and ABV between IPAs (India Pale Ales) and other types of Ale
 (any beer with “Ale” in its name other than IPA).</li>
 </ol>
+<p><strong>Click here to see the data on Shiny:</strong><br />
+<a href="https://catherineticzon.shinyapps.io/FLS12/">https://catherineticzon.shinyapps.io/FLS12/</a></p>
 <pre class="r"><code># Load data sets 
 beers &lt;- read.csv(&quot;C:\\Users\\48103982\\Documents\\MSDS\\6306 Doing Data Science\\Project 1\\Beers.csv&quot;, header=TRUE)
 breweries &lt;- read.csv(&quot;C:\\Users\\48103982\\Documents\\MSDS\\6306 Doing Data Science\\Project 1\\Breweries.csv&quot;, header=TRUE)
@@ -451,20 +456,27 @@ bb &lt;- full_join(beers, breweriesClean, by = &quot;Brewery_id&quot;) %&gt;%
 bb$ABV = as.numeric(bb$ABV)
 
 head(bb, 6)</code></pre>
-<pre><code>##                  Beer Beer_ID   ABV IBU Brewery_id                          Style
-## 1            Pub Beer    1436 0.050  NA        409            American Pale Lager
-## 2         Devil&#39;s Cup    2265 0.066  NA        178        American Pale Ale (APA)
-## 3 Rise of the Phoenix    2264 0.071  NA        178                   American IPA
-## 4            Sinister    2263 0.090  NA        178 American Double / Imperial IPA
-## 5       Sex and Candy    2262 0.075  NA        178                   American IPA
-## 6        Black Exodus    2261 0.077  NA        178                  Oatmeal Stout
-##   Ounces abb                   Brewery City   State
-## 1     12  OR 10 Barrel Brewing Company Bend  Oregon
-## 2     12  IN       18th Street Brewery Gary Indiana
-## 3     12  IN       18th Street Brewery Gary Indiana
-## 4     12  IN       18th Street Brewery Gary Indiana
-## 5     12  IN       18th Street Brewery Gary Indiana
-## 6     12  IN       18th Street Brewery Gary Indiana</code></pre>
+<pre><code>##                  Beer Beer_ID   ABV IBU Brewery_id
+## 1            Pub Beer    1436 0.050  NA        409
+## 2         Devil&#39;s Cup    2265 0.066  NA        178
+## 3 Rise of the Phoenix    2264 0.071  NA        178
+## 4            Sinister    2263 0.090  NA        178
+## 5       Sex and Candy    2262 0.075  NA        178
+## 6        Black Exodus    2261 0.077  NA        178
+##                            Style Ounces abb                   Brewery City
+## 1            American Pale Lager     12  OR 10 Barrel Brewing Company Bend
+## 2        American Pale Ale (APA)     12  IN       18th Street Brewery Gary
+## 3                   American IPA     12  IN       18th Street Brewery Gary
+## 4 American Double / Imperial IPA     12  IN       18th Street Brewery Gary
+## 5                   American IPA     12  IN       18th Street Brewery Gary
+## 6                  Oatmeal Stout     12  IN       18th Street Brewery Gary
+##     State
+## 1  Oregon
+## 2 Indiana
+## 3 Indiana
+## 4 Indiana
+## 5 Indiana
+## 6 Indiana</code></pre>
 <pre class="r"><code>tail(bb, 6)</code></pre>
 <pre><code>##                             Beer Beer_ID   ABV IBU Brewery_id
 ## 2405 Rocky Mountain Oyster Stout    1035 0.075  NA        425
@@ -473,13 +485,20 @@ head(bb, 6)</code></pre>
 ## 2408             B3K Black Lager     620 0.055  NA        425
 ## 2409         Silverback Pale Ale     145 0.055  40        425
 ## 2410        Rail Yard Ale (2009)      84 0.052  NA        425
-##                         Style Ounces abb                 Brewery   City    State
-## 2405           American Stout     12  CO Wynkoop Brewing Company Denver Colorado
-## 2406              Belgian IPA     12  CO Wynkoop Brewing Company Denver Colorado
-## 2407 American Amber / Red Ale     12  CO Wynkoop Brewing Company Denver Colorado
-## 2408              Schwarzbier     12  CO Wynkoop Brewing Company Denver Colorado
-## 2409  American Pale Ale (APA)     12  CO Wynkoop Brewing Company Denver Colorado
-## 2410 American Amber / Red Ale     12  CO Wynkoop Brewing Company Denver Colorado</code></pre>
+##                         Style Ounces abb                 Brewery   City
+## 2405           American Stout     12  CO Wynkoop Brewing Company Denver
+## 2406              Belgian IPA     12  CO Wynkoop Brewing Company Denver
+## 2407 American Amber / Red Ale     12  CO Wynkoop Brewing Company Denver
+## 2408              Schwarzbier     12  CO Wynkoop Brewing Company Denver
+## 2409  American Pale Ale (APA)     12  CO Wynkoop Brewing Company Denver
+## 2410 American Amber / Red Ale     12  CO Wynkoop Brewing Company Denver
+##         State
+## 2405 Colorado
+## 2406 Colorado
+## 2407 Colorado
+## 2408 Colorado
+## 2409 Colorado
+## 2410 Colorado</code></pre>
 </div>
 <div id="address-the-missing-values-in-each-column"
 class="section level2">
@@ -920,20 +939,27 @@ incorrectly classified</li>
 beertypes = ifelse(str_detect(bb$Style,&quot;IPA&quot;)==TRUE,&quot;IPA&quot;,ifelse(str_detect(bb$Style,&quot;Ale&quot;)==TRUE,&quot;ALE&quot;,&quot;Other&quot;))
 bb$Type &lt;- beertypes
 head(bb)</code></pre>
-<pre><code>##                  Beer Beer_ID   ABV IBU Brewery_id                          Style
-## 1            Pub Beer    1436 0.050  NA        409            American Pale Lager
-## 2         Devil&#39;s Cup    2265 0.066  NA        178        American Pale Ale (APA)
-## 3 Rise of the Phoenix    2264 0.071  NA        178                   American IPA
-## 4            Sinister    2263 0.090  NA        178 American Double / Imperial IPA
-## 5       Sex and Candy    2262 0.075  NA        178                   American IPA
-## 6        Black Exodus    2261 0.077  NA        178                  Oatmeal Stout
-##   Ounces abb                   Brewery City   State ABVpercent  Type
-## 1     12  OR 10 Barrel Brewing Company Bend  Oregon        5.0 Other
-## 2     12  IN       18th Street Brewery Gary Indiana        6.6   ALE
-## 3     12  IN       18th Street Brewery Gary Indiana        7.1   IPA
-## 4     12  IN       18th Street Brewery Gary Indiana        9.0   IPA
-## 5     12  IN       18th Street Brewery Gary Indiana        7.5   IPA
-## 6     12  IN       18th Street Brewery Gary Indiana        7.7 Other</code></pre>
+<pre><code>##                  Beer Beer_ID   ABV IBU Brewery_id
+## 1            Pub Beer    1436 0.050  NA        409
+## 2         Devil&#39;s Cup    2265 0.066  NA        178
+## 3 Rise of the Phoenix    2264 0.071  NA        178
+## 4            Sinister    2263 0.090  NA        178
+## 5       Sex and Candy    2262 0.075  NA        178
+## 6        Black Exodus    2261 0.077  NA        178
+##                            Style Ounces abb                   Brewery City
+## 1            American Pale Lager     12  OR 10 Barrel Brewing Company Bend
+## 2        American Pale Ale (APA)     12  IN       18th Street Brewery Gary
+## 3                   American IPA     12  IN       18th Street Brewery Gary
+## 4 American Double / Imperial IPA     12  IN       18th Street Brewery Gary
+## 5                   American IPA     12  IN       18th Street Brewery Gary
+## 6                  Oatmeal Stout     12  IN       18th Street Brewery Gary
+##     State ABVpercent  Type
+## 1  Oregon        5.0 Other
+## 2 Indiana        6.6   ALE
+## 3 Indiana        7.1   IPA
+## 4 Indiana        9.0   IPA
+## 5 Indiana        7.5   IPA
+## 6 Indiana        7.7 Other</code></pre>
 <pre class="r"><code># Impute missing values with median
 bbimpute &lt;- bb
 bbimpute$IBU[is.na(bbimpute$IBU)]&lt;- median(bbimpute$IBU, na.rm = TRUE)
